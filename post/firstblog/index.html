@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>搭建自己的博客 // My New Hugo Site</title>
+    <title>搭建自己的博客 // DW的个人博客</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.83.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="John Doe" />
+    <meta name="author" content="DW" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="https://Dumbledore696.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
 
@@ -45,9 +45,28 @@ git init git add . git commit -m &#34;&#34; #在Github中创建新的仓库 git 
   </head>
   <body>
     <header class="app-header">
-      <a href="https://Dumbledore696.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
-      <h1>My New Hugo Site</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <a href="https://Dumbledore696.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="DW" /></a>
+      <h1>DW的个人博客</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>学习笔记，成长快乐</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/Dumbledore696" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
     </header>
     <main class="app-container">
       
@@ -68,6 +87,13 @@ git init git add . git commit -m &#34;&#34; #在Github中创建新的仓库 git 
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
           1 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://Dumbledore696.github.io/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
         </div>
       </div>
     </header>
@@ -140,8 +166,43 @@ git clone https://github.com/xxx.git themes/soho
 <p>在github中建立一个远程仓库，仓库名为<code>用户名.github.io</code></p>
 <p>生成一个public文件，将public文件推到github中</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo --theme<span style="color:#f92672">=</span>m10c --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://Dumbledore696.github.io/&#34;</span> --buildDrafts
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#在public文件下</span>
+git init
+git add .
+git commit -m <span style="color:#e6db74">&#34;hogo博客第一次提交&#34;</span>
+git remote add origin https://github.com/Dumbledore696/Dumbledore696.github.io.git 
+git push -u origin master
 </code></pre></div></li>
+<li>
+<p>输入<code>https://dumbledore696.github.io/</code>即可访问博客</p>
+</li>
 </ol>
+<h4 id="自定义">自定义</h4>
+<ul>
+<li>
+<p>设定文章的tag</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#直接在文章的头部加入</span>
+tags : <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;博客&#34;</span><span style="color:#f92672">]</span>
+</code></pre></div></li>
+<li>
+<p>为About增加链接</p>
+<p>在content\中加入about.md</p>
+<p><code>注：可以借鉴主题demo对应的目录文件设置</code></p>
+</li>
+<li>
+<p>文章显示图片</p>
+<ul>
+<li>将图片放到根目录下的static下，这是网站的绝对路径，然后用<code>![](/文件名)</code>引用图片</li>
+</ul>
+</li>
+<li>
+<p>头像上传</p>
+<p>将头像放到static目录下</p>
+</li>
+<li>
+<p>购买域名</p>
+</li>
+</ul>
 <h3 id="tips">Tips</h3>
 <ul>
 <li>md文件和网站是实时同步的，不需要刷新</li>
