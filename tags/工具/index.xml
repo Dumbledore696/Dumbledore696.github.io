@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on DW的个人博客</title>
+    <link>https://Dumbledore696.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on DW的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Jun 2021 14:45:15 +0800</lastBuildDate><atom:link href="https://Dumbledore696.github.io/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TensorFlow学习</title>
+      <link>https://Dumbledore696.github.io/post/tensorflow/</link>
+      <pubDate>Sat, 19 Jun 2021 14:45:15 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/tensorflow/</guid>
+      <description>为什么要学 论文代码看不懂啊，准备把tensorflow和pytorch的课程都看一下，也不用看太深，能从头到尾写个简单的深度学习流程就行。
+简介 为什么要使用TensorFlow   GPU加速
+ gpu加速表现在，对于大规模矩阵相乘和相加，gpu并行计算比cpu串行计算快很多    自动求导
+自动求出每一层参数的梯度，更新参数，例如：
+## 求解所有参数的梯度 grads = tape.gradient(loss,model.trainable_variables) ## 更新参数 optimizer = optimizers.SGD(learning_rate=0.001) optimizer.apply_gradients(zip(grads,model.trainable_variables))   神经网络Layers
+调用TensorFlow的api完成复杂神经网络的搭建
+  安装  Anaconda CUDA Nvidia运算平台，实现并行计算 cuDNN 面向神经网络的加速库  应用 以手写数字识别为例，训练神经网络的步骤为
+ 准备数据集minist 前向传播计算h1、h2、out 由y和out计算loss 由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3 跳到第二步，用更新好的参数继续计算  以具体的例子可以对比使用tensorflow前后的不同
+note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了解决高维数据的吞吐和运算，list——&amp;gt;numpy.array
+为了支持GPU运算和自动求导， numpy.array——&amp;gt;tf.Tensor
+操作 参考教程 龙良曲TensorFlow教程</description>
+    </item>
+    
+    <item>
+      <title>vscode的C&#43;&#43;编译运行配置</title>
+      <link>https://Dumbledore696.github.io/post/vscode/</link>
+      <pubDate>Fri, 18 Jun 2021 16:04:33 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/vscode/</guid>
+      <description>配置步骤 今天写leetcode时发现，电脑里竟然没有一个运行c++的集成开发工具，就想到了vscode这款轻量级的IDE，后面也可以用vscode刷题或者摸鱼（后面如果用Java刷题可以用IDEA），安排！
+参考博客1中写的比较繁琐，这里梳理一下步骤，具体的步骤和下载链接到参考博客中找
+ 首先下载vscode和编译器mingw64，然后将mingw64加入环境变量。 在vscode中下载拓展：  chinese C/C++ Code Runner（这个是中国人写的，公众号和知乎都挺活跃的，插件的具体作用以后再探索吧）   为了在vscode下的terminal中显示输出，文件&amp;gt;首选项&amp;gt;设置&amp;gt;用户&amp;gt;拓展&amp;gt;Run Code Configuration，找到Run In Terminal并勾选上，不进行这一步操作，程序中scanf无法执行。 新建cpp文件，点击右上角三角形即可运行。  其他配置
+ 若要在外部中断显示输出或输入，看参考博文1 若要调试C++，需要有launch.json和tasks.json，详细的看参考博文1  leetcode插件配置 今天试了一下用vscode刷题，确实沉浸感很强，更能专注的思考，还有什么好处，后面再写。配置见参考博客2
+我配置的过程中遇到了一个问题，在选择code now时，没有指定工作区，一直无法写代码。直接在setting中搜索leetcode:workspace即可修改
+参考 参考博客1
+参考博客2</description>
+    </item>
+    
+  </channel>
+</rss>

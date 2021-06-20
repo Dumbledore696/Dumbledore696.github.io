@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Array on DW的个人博客</title>
+    <link>https://Dumbledore696.github.io/tags/array/</link>
+    <description>Recent content in Array on DW的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Jun 2021 18:42:53 +0800</lastBuildDate><atom:link href="https://Dumbledore696.github.io/tags/array/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43; Vector整理</title>
+      <link>https://Dumbledore696.github.io/post/vector/</link>
+      <pubDate>Fri, 18 Jun 2021 18:42:53 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/vector/</guid>
+      <description>声明和初始化 vector是一个可变大小数组
+vector&amp;lt;int&amp;gt; vec;	//声明一个int型向量 vector&amp;lt;int&amp;gt; vec(5);	//声明一个初始大小为5的int向量 vector&amp;lt;int&amp;gt; vec(10, 1);	//声明一个初始大小为10且值都是1的向量 vector&amp;lt;int&amp;gt; vec(tmp);	//声明并用tmp向量初始化vec向量 vector&amp;lt;int&amp;gt; tmp(vec.begin(), vec.begin() + 3);	//用向量vec的第0个到第2个值初始化tmp int arr[5] = {1, 2, 3, 4, 5};	vector&amp;lt;int&amp;gt; vec(arr, arr + 5);	//将arr数组的元素用于初始化vec向量 vector&amp;lt;int&amp;gt; vec(&amp;amp;arr[1], &amp;amp;arr[4]); //将arr[1]~arr[4]范围内的元素作为vec的初始值 vector&amp;lt;int&amp;gt; vec({1,2}); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; result.push_back({nums[i],nums[j],nums[k]}) 操作 vec.size();//容量 vec.empty();//判空  vec.push_back();//末尾添加元素 vec.pop_back();//末尾删除元素 vec.insert();//任意位置插入元素 vec.erase();//任意位置删除元素 vec.clear(); vec.begin(); vec.end(); vec[1];//访问元素 vec.at[1];//访问元素，at会检查是否越界，是则抛出out of range异常 vec.front();//访问第一个元素 vec.back();//访问最后一个元素  vector&amp;lt;int&amp;gt;::iterator it; for (it = vec.begin(); it != vec.</description>
+    </item>
+    
+    <item>
+      <title>力扣中Array题目集锦</title>
+      <link>https://Dumbledore696.github.io/post/array/</link>
+      <pubDate>Thu, 17 Jun 2021 23:09:57 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/array/</guid>
+      <description>1.两数之和 //暴力解法，时间复杂度为O(n^2) vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { int n = nums.size(); for(int i = 0;i &amp;lt; n;++i){ for(int j = i+1;j &amp;lt; n;++j){ if(nums[i] + nums[j] == target){ return{i,j} } } } return{} }  暴力解法中为了降低时间复杂度，先将nums.size存储到n中 ++i比i++更好 返回类型为vector&amp;lt;int&amp;gt;时，用{i,j}返回  //时间复杂度为O(n) vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { unordered_map&amp;lt;int,int&amp;gt; hashtable; for(int i = 0;i &amp;lt; nums.size();++i){ auto it = hashtable.find(target - nums[i]); if(it != hashtable.end()){ return{i,it-&amp;gt;second}; } hashtable[nums[i]] = i; } return {}; }  将找target-nums[i]的时间降低了 注意这里使用了hashtable，C++中是用unordered_map来定义hashtable的，注意unordered_map的用法  今天就写到这儿，明天总结vector和unordered_map的用法15 三数之和 vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; threeSum(vector&amp;lt;int&amp;gt;&amp;amp; nums) { sort(nums.</description>
+    </item>
+    
+  </channel>
+</rss>

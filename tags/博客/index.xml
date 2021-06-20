@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Jun 2021 10:14:44 +0800</lastBuildDate><atom:link href="https://Dumbledore696.github.io/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>搭建自己的博客</title>
+      <title>搭建个人博客</title>
       <link>https://Dumbledore696.github.io/post/firstblog/</link>
       <pubDate>Wed, 16 Jun 2021 10:14:44 +0800</pubDate>
       
@@ -20,7 +20,7 @@
   github.io
   Git 告诉bash要推送的是哪一个仓库
 git config --global user.email &amp;#34;you@example.com&amp;#34; git config --global user.name &amp;#34;Your Name&amp;#34; git config --list 设置ssh
- 先克隆到本地，本地修改后上传github
+##暂时没下载 先克隆到本地，本地修改后上传github
 git clone #若未设置公钥ssh，用https git add . git commit -m &amp;#34;XXX&amp;#34; git push -u origin master 本地创建新的仓库再上传github
 git init git add . git commit -m &amp;#34;&amp;#34; #在Github中创建新的仓库 git remote add origin https://github.com/Dumbledore696/new_repo.git git push -u origin master hugo   windows下载hugo框架直接下载二进制文件</description>
     </item>

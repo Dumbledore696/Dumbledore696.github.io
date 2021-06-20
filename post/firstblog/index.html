@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>搭建自己的博客 // DW的个人博客</title>
+    <title>搭建个人博客 // DW的个人博客</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.83.1" />
@@ -12,7 +12,7 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="搭建自己的博客"/>
+<meta name="twitter:title" content="搭建个人博客"/>
 <meta name="twitter:description" content="工具   git
   博客框架如hexo、hugo
   npm
@@ -20,11 +20,11 @@
   github.io
   Git 告诉bash要推送的是哪一个仓库
 git config --global user.email &#34;you@example.com&#34; git config --global user.name &#34;Your Name&#34; git config --list 设置ssh
- 先克隆到本地，本地修改后上传github
+##暂时没下载 先克隆到本地，本地修改后上传github
 git clone #若未设置公钥ssh，用https git add . git commit -m &#34;XXX&#34; git push -u origin master 本地创建新的仓库再上传github
 git init git add . git commit -m &#34;&#34; #在Github中创建新的仓库 git remote add origin https://github.com/Dumbledore696/new_repo.git git push -u origin master hugo   windows下载hugo框架直接下载二进制文件"/>
 
-    <meta property="og:title" content="搭建自己的博客" />
+    <meta property="og:title" content="搭建个人博客" />
 <meta property="og:description" content="工具   git
   博客框架如hexo、hugo
   npm
@@ -32,7 +32,7 @@ git init git add . git commit -m &#34;&#34; #在Github中创建新的仓库 git 
   github.io
   Git 告诉bash要推送的是哪一个仓库
 git config --global user.email &#34;you@example.com&#34; git config --global user.name &#34;Your Name&#34; git config --list 设置ssh
- 先克隆到本地，本地修改后上传github
+##暂时没下载 先克隆到本地，本地修改后上传github
 git clone #若未设置公钥ssh，用https git add . git commit -m &#34;XXX&#34; git push -u origin master 本地创建新的仓库再上传github
 git init git add . git commit -m &#34;&#34; #在Github中创建新的仓库 git remote add origin https://github.com/Dumbledore696/new_repo.git git push -u origin master hugo   windows下载hugo框架直接下载二进制文件" />
 <meta property="og:type" content="article" />
@@ -54,7 +54,7 @@ git init git add . git commit -m &#34;&#34; #在Github中创建新的仓库 git 
           <a class="app-header-menu-item" href="/tags/">Tags</a>
              - 
           
-          <a class="app-header-menu-item" href="/about/">About</a>
+          <a class="app-header-menu-item" href="/about/">Other</a>
       </nav>
       <p>学习笔记，成长快乐</p>
       <div class="app-header-social">
@@ -72,7 +72,7 @@ git init git add . git commit -m &#34;&#34; #在Github中创建新的仓库 git 
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">搭建自己的博客</h1>
+      <h1 class ="post-title">搭建个人博客</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -122,8 +122,8 @@ git init git add . git commit -m &#34;&#34; #在Github中创建新的仓库 git 
  git config --global user.name <span style="color:#e6db74">&#34;Your Name&#34;</span>
  git config --list
 </code></pre></div><p>设置ssh</p>
-<pre><code>
-</code></pre><p>先克隆到本地，本地修改后上传github</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">##暂时没下载</span>
+</code></pre></div><p>先克隆到本地，本地修改后上传github</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone 
 <span style="color:#75715e">#若未设置公钥ssh，用https</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git add .
@@ -142,6 +142,7 @@ git push -u origin master
 <ol>
 <li>
 <p>windows下载hugo框架直接下载二进制文件</p>
+<p><a href="https://github.com/gohugoio/hugo/releases">hugo下载</a></p>
 </li>
 <li>
 <p>创建新博客，生成站点，注意文件夹目录</p>
@@ -202,6 +203,14 @@ tags : <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;博�
 </li>
 <li>
 <p>购买域名</p>
+<ul>
+<li>到<a href="https://link.zhihu.com/?target=https%3A//mi.aliyun.com/">https://mi.aliyun.com/</a>购买域名并按照要求实名认证</li>
+<li>在Github仓库中添加CNAME文件，文件中填写域名名称如<code>amazingdw.top</code></li>
+<li>进入设置，在Pages标签下找到Custom domain，添加上述域名并保存（可能已经自动添加了）</li>
+<li>打开cmd，ping自己的域名，得到一个IP</li>
+<li>打开域名控制台<a href="https://dns.console.aliyun.com/#/dns/domainList">云解析 DNS (aliyun.com)</a>，在域名解析列表中选择解析设置，为域名添加两条记录<img src="/%E5%9F%9F%E5%90%8D%E8%AE%BE%E7%BD%AE.png" alt=""></li>
+<li>接下来就可以通过访问www.amazingdw.top 或者 amazingdw.top 访问个人博客</li>
+</ul>
 </li>
 </ul>
 <h3 id="tips">Tips</h3>

@@ -6,9 +6,74 @@
     <description>Recent content in Posts on DW的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Jun 2021 10:14:44 +0800</lastBuildDate><atom:link href="https://Dumbledore696.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Jun 2021 14:45:15 +0800</lastBuildDate><atom:link href="https://Dumbledore696.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>搭建自己的博客</title>
+      <title>TensorFlow学习</title>
+      <link>https://Dumbledore696.github.io/post/tensorflow/</link>
+      <pubDate>Sat, 19 Jun 2021 14:45:15 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/tensorflow/</guid>
+      <description>为什么要学 论文代码看不懂啊，准备把tensorflow和pytorch的课程都看一下，也不用看太深，能从头到尾写个简单的深度学习流程就行。
+简介 为什么要使用TensorFlow   GPU加速
+ gpu加速表现在，对于大规模矩阵相乘和相加，gpu并行计算比cpu串行计算快很多    自动求导
+自动求出每一层参数的梯度，更新参数，例如：
+## 求解所有参数的梯度 grads = tape.gradient(loss,model.trainable_variables) ## 更新参数 optimizer = optimizers.SGD(learning_rate=0.001) optimizer.apply_gradients(zip(grads,model.trainable_variables))   神经网络Layers
+调用TensorFlow的api完成复杂神经网络的搭建
+  安装  Anaconda CUDA Nvidia运算平台，实现并行计算 cuDNN 面向神经网络的加速库  应用 以手写数字识别为例，训练神经网络的步骤为
+ 准备数据集minist 前向传播计算h1、h2、out 由y和out计算loss 由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3 跳到第二步，用更新好的参数继续计算  以具体的例子可以对比使用tensorflow前后的不同
+note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了解决高维数据的吞吐和运算，list——&amp;gt;numpy.array
+为了支持GPU运算和自动求导， numpy.array——&amp;gt;tf.Tensor
+操作 参考教程 龙良曲TensorFlow教程</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; Vector整理</title>
+      <link>https://Dumbledore696.github.io/post/vector/</link>
+      <pubDate>Fri, 18 Jun 2021 18:42:53 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/vector/</guid>
+      <description>声明和初始化 vector是一个可变大小数组
+vector&amp;lt;int&amp;gt; vec;	//声明一个int型向量 vector&amp;lt;int&amp;gt; vec(5);	//声明一个初始大小为5的int向量 vector&amp;lt;int&amp;gt; vec(10, 1);	//声明一个初始大小为10且值都是1的向量 vector&amp;lt;int&amp;gt; vec(tmp);	//声明并用tmp向量初始化vec向量 vector&amp;lt;int&amp;gt; tmp(vec.begin(), vec.begin() + 3);	//用向量vec的第0个到第2个值初始化tmp int arr[5] = {1, 2, 3, 4, 5};	vector&amp;lt;int&amp;gt; vec(arr, arr + 5);	//将arr数组的元素用于初始化vec向量 vector&amp;lt;int&amp;gt; vec(&amp;amp;arr[1], &amp;amp;arr[4]); //将arr[1]~arr[4]范围内的元素作为vec的初始值 vector&amp;lt;int&amp;gt; vec({1,2}); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; result.push_back({nums[i],nums[j],nums[k]}) 操作 vec.size();//容量 vec.empty();//判空  vec.push_back();//末尾添加元素 vec.pop_back();//末尾删除元素 vec.insert();//任意位置插入元素 vec.erase();//任意位置删除元素 vec.clear(); vec.begin(); vec.end(); vec[1];//访问元素 vec.at[1];//访问元素，at会检查是否越界，是则抛出out of range异常 vec.front();//访问第一个元素 vec.back();//访问最后一个元素  vector&amp;lt;int&amp;gt;::iterator it; for (it = vec.begin(); it != vec.</description>
+    </item>
+    
+    <item>
+      <title>vscode的C&#43;&#43;编译运行配置</title>
+      <link>https://Dumbledore696.github.io/post/vscode/</link>
+      <pubDate>Fri, 18 Jun 2021 16:04:33 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/vscode/</guid>
+      <description>配置步骤 今天写leetcode时发现，电脑里竟然没有一个运行c++的集成开发工具，就想到了vscode这款轻量级的IDE，后面也可以用vscode刷题或者摸鱼（后面如果用Java刷题可以用IDEA），安排！
+参考博客1中写的比较繁琐，这里梳理一下步骤，具体的步骤和下载链接到参考博客中找
+ 首先下载vscode和编译器mingw64，然后将mingw64加入环境变量。 在vscode中下载拓展：  chinese C/C++ Code Runner（这个是中国人写的，公众号和知乎都挺活跃的，插件的具体作用以后再探索吧）   为了在vscode下的terminal中显示输出，文件&amp;gt;首选项&amp;gt;设置&amp;gt;用户&amp;gt;拓展&amp;gt;Run Code Configuration，找到Run In Terminal并勾选上，不进行这一步操作，程序中scanf无法执行。 新建cpp文件，点击右上角三角形即可运行。  其他配置
+ 若要在外部中断显示输出或输入，看参考博文1 若要调试C++，需要有launch.json和tasks.json，详细的看参考博文1  leetcode插件配置 今天试了一下用vscode刷题，确实沉浸感很强，更能专注的思考，还有什么好处，后面再写。配置见参考博客2
+我配置的过程中遇到了一个问题，在选择code now时，没有指定工作区，一直无法写代码。直接在setting中搜索leetcode:workspace即可修改
+参考 参考博客1
+参考博客2</description>
+    </item>
+    
+    <item>
+      <title>力扣中Array题目集锦</title>
+      <link>https://Dumbledore696.github.io/post/array/</link>
+      <pubDate>Thu, 17 Jun 2021 23:09:57 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/array/</guid>
+      <description>1.两数之和 //暴力解法，时间复杂度为O(n^2) vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { int n = nums.size(); for(int i = 0;i &amp;lt; n;++i){ for(int j = i+1;j &amp;lt; n;++j){ if(nums[i] + nums[j] == target){ return{i,j} } } } return{} }  暴力解法中为了降低时间复杂度，先将nums.size存储到n中 ++i比i++更好 返回类型为vector&amp;lt;int&amp;gt;时，用{i,j}返回  //时间复杂度为O(n) vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { unordered_map&amp;lt;int,int&amp;gt; hashtable; for(int i = 0;i &amp;lt; nums.size();++i){ auto it = hashtable.find(target - nums[i]); if(it != hashtable.end()){ return{i,it-&amp;gt;second}; } hashtable[nums[i]] = i; } return {}; }  将找target-nums[i]的时间降低了 注意这里使用了hashtable，C++中是用unordered_map来定义hashtable的，注意unordered_map的用法  今天就写到这儿，明天总结vector和unordered_map的用法15 三数之和 vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; threeSum(vector&amp;lt;int&amp;gt;&amp;amp; nums) { sort(nums.</description>
+    </item>
+    
+    <item>
+      <title>运行论文中算法gym出现问题OSError: [WinError 126] 找不到指定的模块 (ale_c.dll)</title>
+      <link>https://Dumbledore696.github.io/post/rl_problem1/</link>
+      <pubDate>Thu, 17 Jun 2021 16:40:19 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/rl_problem1/</guid>
+      <description>记录一下SB问题 刚开始遇到这个问题，我怀疑是没有atari中没有这个dll文件，找了半天怎么找都找不到，然后看到这是gym[atari]模块自带的问题，和算法无关，直接删除🤣，然后报错了。原来gym环境用到了这个模块，又用pip install gym[atari]装上，依然报这个错误。
+解决方法 删除atari-py ：pip uninstall atari-py
+然后安装另外一个版本的atari：pip install --no-index -f https://github.com/Kojoley/atari-py/releases atari_py
+总结 当一个包出问题时，直接卸载，下载新包，但是注意下载方式，可能需要从github中下载</description>
+    </item>
+    
+    <item>
+      <title>搭建个人博客</title>
       <link>https://Dumbledore696.github.io/post/firstblog/</link>
       <pubDate>Wed, 16 Jun 2021 10:14:44 +0800</pubDate>
       
@@ -20,7 +85,7 @@
   github.io
   Git 告诉bash要推送的是哪一个仓库
 git config --global user.email &amp;#34;you@example.com&amp;#34; git config --global user.name &amp;#34;Your Name&amp;#34; git config --list 设置ssh
- 先克隆到本地，本地修改后上传github
+##暂时没下载 先克隆到本地，本地修改后上传github
 git clone #若未设置公钥ssh，用https git add . git commit -m &amp;#34;XXX&amp;#34; git push -u origin master 本地创建新的仓库再上传github
 git init git add . git commit -m &amp;#34;&amp;#34; #在Github中创建新的仓库 git remote add origin https://github.com/Dumbledore696/new_repo.git git push -u origin master hugo   windows下载hugo框架直接下载二进制文件</description>
     </item>

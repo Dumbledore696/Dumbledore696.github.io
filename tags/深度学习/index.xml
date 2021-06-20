@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>深度学习 on DW的个人博客</title>
+    <link>https://Dumbledore696.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 深度学习 on DW的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Jun 2021 14:45:15 +0800</lastBuildDate><atom:link href="https://Dumbledore696.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TensorFlow学习</title>
+      <link>https://Dumbledore696.github.io/post/tensorflow/</link>
+      <pubDate>Sat, 19 Jun 2021 14:45:15 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/tensorflow/</guid>
+      <description>为什么要学 论文代码看不懂啊，准备把tensorflow和pytorch的课程都看一下，也不用看太深，能从头到尾写个简单的深度学习流程就行。
+简介 为什么要使用TensorFlow   GPU加速
+ gpu加速表现在，对于大规模矩阵相乘和相加，gpu并行计算比cpu串行计算快很多    自动求导
+自动求出每一层参数的梯度，更新参数，例如：
+## 求解所有参数的梯度 grads = tape.gradient(loss,model.trainable_variables) ## 更新参数 optimizer = optimizers.SGD(learning_rate=0.001) optimizer.apply_gradients(zip(grads,model.trainable_variables))   神经网络Layers
+调用TensorFlow的api完成复杂神经网络的搭建
+  安装  Anaconda CUDA Nvidia运算平台，实现并行计算 cuDNN 面向神经网络的加速库  应用 以手写数字识别为例，训练神经网络的步骤为
+ 准备数据集minist 前向传播计算h1、h2、out 由y和out计算loss 由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3 跳到第二步，用更新好的参数继续计算  以具体的例子可以对比使用tensorflow前后的不同
+note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了解决高维数据的吞吐和运算，list——&amp;gt;numpy.array
+为了支持GPU运算和自动求导， numpy.array——&amp;gt;tf.Tensor
+操作 参考教程 龙良曲TensorFlow教程</description>
+    </item>
+    
+  </channel>
+</rss>

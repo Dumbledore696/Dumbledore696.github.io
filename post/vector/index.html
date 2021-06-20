@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>C&#43;&#43; Vector整理 // DW的个人博客</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="DW" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Dumbledore696.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C&#43;&#43; Vector整理"/>
+<meta name="twitter:description" content="声明和初始化 vector是一个可变大小数组
+vector&lt;int&gt; vec;	//声明一个int型向量 vector&lt;int&gt; vec(5);	//声明一个初始大小为5的int向量 vector&lt;int&gt; vec(10, 1);	//声明一个初始大小为10且值都是1的向量 vector&lt;int&gt; vec(tmp);	//声明并用tmp向量初始化vec向量 vector&lt;int&gt; tmp(vec.begin(), vec.begin() &#43; 3);	//用向量vec的第0个到第2个值初始化tmp int arr[5] = {1, 2, 3, 4, 5};	vector&lt;int&gt; vec(arr, arr &#43; 5);	//将arr数组的元素用于初始化vec向量 vector&lt;int&gt; vec(&amp;arr[1], &amp;arr[4]); //将arr[1]~arr[4]范围内的元素作为vec的初始值 vector&lt;int&gt; vec({1,2}); vector&lt;vector&lt;int&gt;&gt; result; result.push_back({nums[i],nums[j],nums[k]}) 操作 vec.size();//容量 vec.empty();//判空  vec.push_back();//末尾添加元素 vec.pop_back();//末尾删除元素 vec.insert();//任意位置插入元素 vec.erase();//任意位置删除元素 vec.clear(); vec.begin(); vec.end(); vec[1];//访问元素 vec.at[1];//访问元素，at会检查是否越界，是则抛出out of range异常 vec.front();//访问第一个元素 vec.back();//访问最后一个元素  vector&lt;int&gt;::iterator it; for (it = vec.begin(); it != vec."/>
+
+    <meta property="og:title" content="C&#43;&#43; Vector整理" />
+<meta property="og:description" content="声明和初始化 vector是一个可变大小数组
+vector&lt;int&gt; vec;	//声明一个int型向量 vector&lt;int&gt; vec(5);	//声明一个初始大小为5的int向量 vector&lt;int&gt; vec(10, 1);	//声明一个初始大小为10且值都是1的向量 vector&lt;int&gt; vec(tmp);	//声明并用tmp向量初始化vec向量 vector&lt;int&gt; tmp(vec.begin(), vec.begin() &#43; 3);	//用向量vec的第0个到第2个值初始化tmp int arr[5] = {1, 2, 3, 4, 5};	vector&lt;int&gt; vec(arr, arr &#43; 5);	//将arr数组的元素用于初始化vec向量 vector&lt;int&gt; vec(&amp;arr[1], &amp;arr[4]); //将arr[1]~arr[4]范围内的元素作为vec的初始值 vector&lt;int&gt; vec({1,2}); vector&lt;vector&lt;int&gt;&gt; result; result.push_back({nums[i],nums[j],nums[k]}) 操作 vec.size();//容量 vec.empty();//判空  vec.push_back();//末尾添加元素 vec.pop_back();//末尾删除元素 vec.insert();//任意位置插入元素 vec.erase();//任意位置删除元素 vec.clear(); vec.begin(); vec.end(); vec[1];//访问元素 vec.at[1];//访问元素，at会检查是否越界，是则抛出out of range异常 vec.front();//访问第一个元素 vec.back();//访问最后一个元素  vector&lt;int&gt;::iterator it; for (it = vec.begin(); it != vec." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Dumbledore696.github.io/post/vector/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-18T18:42:53&#43;08:00" />
+<meta property="article:modified_time" content="2021-06-18T18:42:53&#43;08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Dumbledore696.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="DW" /></a>
+      <h1>DW的个人博客</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">Other</a>
+      </nav>
+      <p>学习笔记，成长快乐</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/Dumbledore696" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">C&#43;&#43; Vector整理</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jun 18, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://Dumbledore696.github.io/tags/leetcode/">Leetcode</a>
+              <a class="tag" href="https://Dumbledore696.github.io/tags/array/">Array</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h3 id="声明和初始化">声明和初始化</h3>
+<p>vector是一个可变大小数组</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec;		<span style="color:#75715e">//声明一个int型向量
+</span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(<span style="color:#ae81ff">5</span>);		<span style="color:#75715e">//声明一个初始大小为5的int向量
+</span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">1</span>);	<span style="color:#75715e">//声明一个初始大小为10且值都是1的向量
+</span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(tmp);	<span style="color:#75715e">//声明并用tmp向量初始化vec向量
+</span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> tmp(vec.begin(), vec.begin() <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span>);	<span style="color:#75715e">//用向量vec的第0个到第2个值初始化tmp
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> arr[<span style="color:#ae81ff">5</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>};	
+vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(arr, arr <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>);		<span style="color:#75715e">//将arr数组的元素用于初始化vec向量
+</span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(<span style="color:#f92672">&amp;</span>arr[<span style="color:#ae81ff">1</span>], <span style="color:#f92672">&amp;</span>arr[<span style="color:#ae81ff">4</span>]); <span style="color:#75715e">//将arr[1]~arr[4]范围内的元素作为vec的初始值
+</span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec({<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>});
+
+vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> result;
+result.push_back({nums[i],nums[j],nums[k]})
+</code></pre></div><h3 id="操作">操作</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">vec.size();<span style="color:#75715e">//容量
+</span><span style="color:#75715e"></span>vec.empty();<span style="color:#75715e">//判空
+</span><span style="color:#75715e"></span>
+vec.push_back();<span style="color:#75715e">//末尾添加元素
+</span><span style="color:#75715e"></span>vec.pop_back();<span style="color:#75715e">//末尾删除元素
+</span><span style="color:#75715e"></span>vec.insert();<span style="color:#75715e">//任意位置插入元素
+</span><span style="color:#75715e"></span>vec.erase();<span style="color:#75715e">//任意位置删除元素
+</span><span style="color:#75715e"></span>vec.clear();
+
+vec.begin();
+vec.end();
+vec[<span style="color:#ae81ff">1</span>];<span style="color:#75715e">//访问元素
+</span><span style="color:#75715e"></span>vec.at[<span style="color:#ae81ff">1</span>];<span style="color:#75715e">//访问元素，at会检查是否越界，是则抛出out of range异常
+</span><span style="color:#75715e"></span>vec.front();<span style="color:#75715e">//访问第一个元素
+</span><span style="color:#75715e"></span>vec.back();<span style="color:#75715e">//访问最后一个元素
+</span><span style="color:#75715e"></span>    
+vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it;
+<span style="color:#66d9ef">for</span> (it <span style="color:#f92672">=</span> vec.begin(); it <span style="color:#f92672">!=</span> vec.end(); it<span style="color:#f92672">++</span>)
+    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>it <span style="color:#f92672">&lt;&lt;</span> endl;    
+</code></pre></div><h3 id="参考">参考</h3>
+<p><a href="https://www.cnblogs.com/zhonghuasong/p/5975979.html#">vector用法 博客园</a></p>
+<p><a href="https://www.w3cschool.cn/cpp/cpp-i6da2pq0.html">C++ vector使用方法_w3cschool</a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>TensorFlow学习 // DW的个人博客</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="DW" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Dumbledore696.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TensorFlow学习"/>
+<meta name="twitter:description" content="为什么要学 论文代码看不懂啊，准备把tensorflow和pytorch的课程都看一下，也不用看太深，能从头到尾写个简单的深度学习流程就行。
+简介 为什么要使用TensorFlow   GPU加速
+ gpu加速表现在，对于大规模矩阵相乘和相加，gpu并行计算比cpu串行计算快很多    自动求导
+自动求出每一层参数的梯度，更新参数，例如：
+## 求解所有参数的梯度 grads = tape.gradient(loss,model.trainable_variables) ## 更新参数 optimizer = optimizers.SGD(learning_rate=0.001) optimizer.apply_gradients(zip(grads,model.trainable_variables))   神经网络Layers
+调用TensorFlow的api完成复杂神经网络的搭建
+  安装  Anaconda CUDA Nvidia运算平台，实现并行计算 cuDNN 面向神经网络的加速库  应用 以手写数字识别为例，训练神经网络的步骤为
+ 准备数据集minist 前向传播计算h1、h2、out 由y和out计算loss 由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3 跳到第二步，用更新好的参数继续计算  以具体的例子可以对比使用tensorflow前后的不同
+note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了解决高维数据的吞吐和运算，list——&gt;numpy.array
+为了支持GPU运算和自动求导， numpy.array——&gt;tf.Tensor
+操作 参考教程 龙良曲TensorFlow教程"/>
+
+    <meta property="og:title" content="TensorFlow学习" />
+<meta property="og:description" content="为什么要学 论文代码看不懂啊，准备把tensorflow和pytorch的课程都看一下，也不用看太深，能从头到尾写个简单的深度学习流程就行。
+简介 为什么要使用TensorFlow   GPU加速
+ gpu加速表现在，对于大规模矩阵相乘和相加，gpu并行计算比cpu串行计算快很多    自动求导
+自动求出每一层参数的梯度，更新参数，例如：
+## 求解所有参数的梯度 grads = tape.gradient(loss,model.trainable_variables) ## 更新参数 optimizer = optimizers.SGD(learning_rate=0.001) optimizer.apply_gradients(zip(grads,model.trainable_variables))   神经网络Layers
+调用TensorFlow的api完成复杂神经网络的搭建
+  安装  Anaconda CUDA Nvidia运算平台，实现并行计算 cuDNN 面向神经网络的加速库  应用 以手写数字识别为例，训练神经网络的步骤为
+ 准备数据集minist 前向传播计算h1、h2、out 由y和out计算loss 由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3 跳到第二步，用更新好的参数继续计算  以具体的例子可以对比使用tensorflow前后的不同
+note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了解决高维数据的吞吐和运算，list——&gt;numpy.array
+为了支持GPU运算和自动求导， numpy.array——&gt;tf.Tensor
+操作 参考教程 龙良曲TensorFlow教程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Dumbledore696.github.io/post/tensorflow/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-19T14:45:15&#43;08:00" />
+<meta property="article:modified_time" content="2021-06-19T14:45:15&#43;08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Dumbledore696.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="DW" /></a>
+      <h1>DW的个人博客</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">Other</a>
+      </nav>
+      <p>学习笔记，成长快乐</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/Dumbledore696" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">TensorFlow学习</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jun 19, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://Dumbledore696.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+              <a class="tag" href="https://Dumbledore696.github.io/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h2 id="为什么要学">为什么要学</h2>
+<p>论文代码看不懂啊，准备把tensorflow和pytorch的课程都看一下，也不用看太深，能从头到尾写个简单的深度学习流程就行。</p>
+<h2 id="简介">简介</h2>
+<h3 id="为什么要使用tensorflow">为什么要使用TensorFlow</h3>
+<ul>
+<li>
+<p>GPU加速</p>
+<ul>
+<li>gpu加速表现在，对于大规模矩阵相乘和相加，gpu并行计算比cpu串行计算快很多</li>
+</ul>
+</li>
+<li>
+<p>自动求导</p>
+<p>自动求出每一层参数的梯度，更新参数，例如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">## 求解所有参数的梯度</span>
+grads <span style="color:#f92672">=</span> tape<span style="color:#f92672">.</span>gradient(loss,model<span style="color:#f92672">.</span>trainable_variables)
+<span style="color:#75715e">## 更新参数</span>
+optimizer <span style="color:#f92672">=</span> optimizers<span style="color:#f92672">.</span>SGD(learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">0.001</span>)
+optimizer<span style="color:#f92672">.</span>apply_gradients(zip(grads,model<span style="color:#f92672">.</span>trainable_variables))
+</code></pre></div></li>
+<li>
+<p>神经网络Layers</p>
+<p>调用TensorFlow的api完成复杂神经网络的搭建</p>
+</li>
+</ul>
+<h3 id="安装">安装</h3>
+<ul>
+<li>Anaconda</li>
+<li>CUDA Nvidia运算平台，实现并行计算</li>
+<li>cuDNN 面向神经网络的加速库</li>
+</ul>
+<h3 id="应用">应用</h3>
+<p>以手写数字识别为例，训练神经网络的步骤为</p>
+<ol>
+<li>准备数据集minist</li>
+<li>前向传播计算h1、h2、out</li>
+<li>由y和out计算loss</li>
+<li>由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3</li>
+<li>跳到第二步，用更新好的参数继续计算</li>
+</ol>
+<p><strong>以具体的例子可以对比使用tensorflow前后的不同</strong></p>
+<h4 id="note">note</h4>
+<ul>
+<li>要使用GPU加速，要将numpy转换为tensor</li>
+</ul>
+<h2 id="基本数据类型">基本数据类型</h2>
+<p>为了解决高维数据的吞吐和运算，list——&gt;numpy.array</p>
+<p>为了支持GPU运算和自动求导，    numpy.array——&gt;tf.Tensor</p>
+<h2 id="操作">操作</h2>
+<h2 id="参考教程">参考教程</h2>
+<p><a href="https://www.bilibili.com/video/BV1HV411q7xD?p=3&amp;spm_id_from=pageDriver">龙良曲TensorFlow教程</a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
