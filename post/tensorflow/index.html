@@ -21,9 +21,12 @@
 调用TensorFlow的api完成复杂神经网络的搭建
   安装  Anaconda CUDA Nvidia运算平台，实现并行计算 cuDNN 面向神经网络的加速库  应用 以手写数字识别为例，训练神经网络的步骤为
  准备数据集minist 前向传播计算h1、h2、out 由y和out计算loss 由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3 跳到第二步，用更新好的参数继续计算  以具体的例子可以对比使用tensorflow前后的不同
-note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了解决高维数据的吞吐和运算，list——&gt;numpy.array
+note   要使用GPU加速，要将numpy转换为tensor
+  为了解决高维数据的吞吐和运算，list——&gt;numpy.array
 为了支持GPU运算和自动求导， numpy.array——&gt;tf.Tensor
-操作 参考教程 龙良曲TensorFlow教程"/>
+  tf.varible()是专门为神经网络的参数设置的属性，为了记录参数的梯度信息
+  tensorflow基础 基本数据类型和属性   为了解决高维数据的吞吐和运算，list——&gt;numpy.array
+  为了支持GPU运算和自动求导， numpy."/>
 
     <meta property="og:title" content="TensorFlow学习" />
 <meta property="og:description" content="为什么要学 论文代码看不懂啊，准备把tensorflow和pytorch的课程都看一下，也不用看太深，能从头到尾写个简单的深度学习流程就行。
@@ -34,9 +37,12 @@ note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了
 调用TensorFlow的api完成复杂神经网络的搭建
   安装  Anaconda CUDA Nvidia运算平台，实现并行计算 cuDNN 面向神经网络的加速库  应用 以手写数字识别为例，训练神经网络的步骤为
  准备数据集minist 前向传播计算h1、h2、out 由y和out计算loss 由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3 跳到第二步，用更新好的参数继续计算  以具体的例子可以对比使用tensorflow前后的不同
-note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了解决高维数据的吞吐和运算，list——&gt;numpy.array
+note   要使用GPU加速，要将numpy转换为tensor
+  为了解决高维数据的吞吐和运算，list——&gt;numpy.array
 为了支持GPU运算和自动求导， numpy.array——&gt;tf.Tensor
-操作 参考教程 龙良曲TensorFlow教程" />
+  tf.varible()是专门为神经网络的参数设置的属性，为了记录参数的梯度信息
+  tensorflow基础 基本数据类型和属性   为了解决高维数据的吞吐和运算，list——&gt;numpy.array
+  为了支持GPU运算和自动求导， numpy." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Dumbledore696.github.io/post/tensorflow/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-06-19T14:45:15&#43;08:00" />
@@ -88,7 +94,7 @@ note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          2 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -142,14 +148,255 @@ optimizer<span style="color:#f92672">.</span>apply_gradients(zip(grads,model<spa
 <li>跳到第二步，用更新好的参数继续计算</li>
 </ol>
 <p><strong>以具体的例子可以对比使用tensorflow前后的不同</strong></p>
-<h4 id="note">note</h4>
+<h3 id="note">note</h3>
 <ul>
-<li>要使用GPU加速，要将numpy转换为tensor</li>
-</ul>
-<h2 id="基本数据类型">基本数据类型</h2>
+<li>
+<p>要使用GPU加速，要将numpy转换为tensor</p>
+</li>
+<li>
 <p>为了解决高维数据的吞吐和运算，list——&gt;numpy.array</p>
 <p>为了支持GPU运算和自动求导，    numpy.array——&gt;tf.Tensor</p>
+</li>
+<li>
+<p>tf.varible()是专门为神经网络的参数设置的属性，为了记录参数的梯度信息</p>
+</li>
+</ul>
+<h2 id="tensorflow基础">tensorflow基础</h2>
+<h3 id="基本数据类型和属性">基本数据类型和属性</h3>
+<ul>
+<li>
+<p>为了解决高维数据的吞吐和运算，list——&gt;numpy.array</p>
+</li>
+<li>
+<p>为了支持GPU运算和自动求导，    numpy.array——&gt;tf.Tensor</p>
+</li>
+<li>
+<p>tf.varible()是专门为神经网络的参数设置的属性，为了记录参数的梯度信息</p>
+</li>
+<li>
+<p><strong>类型转换</strong>：tf.cast</p>
+</li>
+</ul>
+<h3 id="创建tensor以及不同维度tensor的应用">创建Tensor以及不同维度Tensor的应用</h3>
+<ul>
+<li>
+<p>创建tensor ，用于初始化</p>
+</li>
+<li>
+<p>[]是标量</p>
+</li>
+<li>
+<p>不同维的Tensor对应不同的应用场景，比如三维用在NLP中，四维用在图片中</p>
+</li>
+<li>
+<p>tf.random.uniform均匀分布的随机数</p>
+</li>
+<li>
+<p>tf.random.norm正态分布的随机数</p>
+</li>
+</ul>
+<h3 id="索引和切片和采样">索引和切片和采样</h3>
+<ul>
+<li>三种索引方式</li>
+</ul>
+<h3 id="维度变换">维度变换</h3>
+<ul>
+<li>维度不一致可以用broadcasting，可以自动运算不一致的维度，但是有限制</li>
+</ul>
+<h3 id="数学运算">数学运算</h3>
+<ul>
+<li>+-*/ （元素操作）</li>
+<li>** ,pow,square</li>
+<li>sqrt</li>
+<li>//,%</li>
+<li>exp,log</li>
+<li>@,matmul （矩阵操作）</li>
+<li>linear layer</li>
+<li>reduce_mean/max/min/sum （维度操作）</li>
+</ul>
 <h2 id="操作">操作</h2>
+<h3 id="前向传播">前向传播</h3>
+<h3 id="张量的高级操作">张量的高级操作</h3>
+<ul>
+<li>合并与分割</li>
+<li>数据统计
+<ul>
+<li><code>tf.norm(a)</code>相当于<code>tf.sqrt(tf.reduce_sum(tf.square(a)))</code></li>
+<li>tf.equal和tf.argmax可以用于求解预测的准确性</li>
+</ul>
+</li>
+<li>排序</li>
+<li>填充与复制
+<ul>
+<li>tf.pad 用于对图片数据和语言数据的扩充</li>
+<li>tf.tile</li>
+</ul>
+</li>
+</ul>
+<h3 id="全连接层">全连接层</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#张量方式实现</span>
+x <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal([<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">784</span>])
+w1 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Variable(tf<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>truncated_normal([<span style="color:#ae81ff">784</span>, <span style="color:#ae81ff">256</span>], stddev<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>))
+b1 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>Variable(tf<span style="color:#f92672">.</span>zeros([<span style="color:#ae81ff">256</span>]))
+o1 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>matmul(x,w1) <span style="color:#f92672">+</span> b1 <span style="color:#75715e"># 线性变换</span>
+o1 <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>relu(o1) <span style="color:#75715e"># 激活函数</span>
+
+<span style="color:#75715e">#layer方式实现</span>
+x <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal([<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">28</span><span style="color:#f92672">*</span><span style="color:#ae81ff">28</span>])
+<span style="color:#f92672">from</span> tensorflow.keras <span style="color:#f92672">import</span> layers <span style="color:#75715e"># 导入层模块</span>
+fc <span style="color:#f92672">=</span> layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">512</span>, activation<span style="color:#f92672">=</span>tf<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>relu)  <span style="color:#75715e"># 创建全连接层，指定输出节点数和激活函数</span>
+h1 <span style="color:#f92672">=</span> fc(x) <span style="color:#75715e"># 通过 fc 类实例完成一次全连接层的计算，返回输出张量</span>
+
+<span style="color:#75715e">#多层全连接层</span>
+<span style="color:#f92672">from</span> tensorflow.keras <span style="color:#f92672">import</span> layers,Sequential
+model <span style="color:#f92672">=</span> Sequential([<span style="color:#75715e"># 通过 Sequential 容器封装为一个网络类</span>
+ layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">256</span>, activation<span style="color:#f92672">=</span>tf<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>relu) , <span style="color:#75715e"># 创建隐藏层 1</span>
+ layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">128</span>, activation<span style="color:#f92672">=</span>tf<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>relu) , <span style="color:#75715e"># 创建隐藏层 2</span>
+ layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span>tf<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>relu) , <span style="color:#75715e"># 创建隐藏层 3</span>
+ layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">10</span>, activation<span style="color:#f92672">=</span>None) , <span style="color:#75715e"># 创建输出层</span>
+])
+</code></pre></div><h3 id="可视化">可视化</h3>
+<ul>
+<li>
+<p>Tensorboard</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#在存放数据的文件夹下 cmd 输入 tensorboard --logdir logs</span>
+<span style="color:#75715e">#build summary</span>
+current_time <span style="color:#f92672">=</span> datatime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()<span style="color:#f92672">.</span>striftime(<span style="color:#e6db74">&#34;%Y%m</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">-%H%M%S&#34;</span>)
+log_dir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;logs/&#39;</span> <span style="color:#f92672">+</span> current_time
+summary_writer <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>create_file_writer(log_dir)
+<span style="color:#75715e">#fed scalar</span>
+<span style="color:#66d9ef">with</span> summary_writer<span style="color:#f92672">.</span>as_default():
+    tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>scalar(<span style="color:#e6db74">&#39;loss&#39;</span>,float(loss),step<span style="color:#f92672">=</span>epoch)
+    tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>scalar(<span style="color:#e6db74">&#39;accuracy&#39;</span>,float(train_accuracy),step<span style="color:#f92672">=</span>epoch)
+<span style="color:#75715e">#fed single Image</span>
+<span style="color:#66d9ef">with</span> summary_writer<span style="color:#f92672">.</span>as_default():
+    tf<span style="color:#f92672">.</span>summary<span style="color:#f92672">.</span>image(<span style="color:#e6db74">&#34;Training sample:&#34;</span>,sample_image,step <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)
+</code></pre></div></li>
+<li>
+<p>visdom</p>
+</li>
+</ul>
+<h3 id="keras高层接口">keras高层接口</h3>
+<h4 id="主要接口与接口下的函数">主要接口与接口下的函数</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> tensorflow.keras <span style="color:#f92672">import</span> optimizers,losses,datasets,layers<span style="color:#960050;background-color:#1e0010">，</span>Sequntial,<span style="color:#f92672">...</span>
+</code></pre></div><ul>
+<li>
+<p>datasets</p>
+</li>
+<li>
+<p>layers 层模块 包含Dense和Relu等函数</p>
+</li>
+<li>
+<p>losses</p>
+</li>
+<li>
+<p>metrics</p>
+</li>
+<li>
+<p>optimizers</p>
+</li>
+<li>
+<p>Sequential 网络容器，是keras.Model的子类，用于多层神经网络 ，包含build加载模型等函数</p>
+<ul>
+<li>
+<p>trainable_varibles</p>
+</li>
+<li>
+<p>call()为network(x)前向计算自动调用的函数</p>
+</li>
+<li>
+<p>compile、fit 和evaluate分别用于模型装配、训练和测试</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">##使用compile、fit之前的模型装配、训练和测试，详细见ch08-Keras高层接口/metrics.py</span>
+network <span style="color:#f92672">=</span> Sequential([layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">256</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+                     layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">128</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+                     layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+                     layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">32</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+                     layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">10</span>)])
+network<span style="color:#f92672">.</span>build(input_shape<span style="color:#f92672">=</span>(None, <span style="color:#ae81ff">28</span><span style="color:#f92672">*</span><span style="color:#ae81ff">28</span>))<span style="color:#75715e">#创建参数，方便在训练之前观察参数，而network(x)可以自动创建参数并实现前向计算</span>
+optimizer <span style="color:#f92672">=</span> optimizers<span style="color:#f92672">.</span>Adam(lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>)
+acc_meter <span style="color:#f92672">=</span> metrics<span style="color:#f92672">.</span>Accuracy()<span style="color:#75715e">##准确率</span>
+<span style="color:#66d9ef">for</span> step, (x,y) <span style="color:#f92672">in</span> enumerate(db):
+
+    <span style="color:#66d9ef">with</span> tf<span style="color:#f92672">.</span>GradientTape() <span style="color:#66d9ef">as</span> tape:
+        x <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>reshape(x, (<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">28</span><span style="color:#f92672">*</span><span style="color:#ae81ff">28</span>))
+        out <span style="color:#f92672">=</span> network(x)
+        y_onehot <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>one_hot(y, depth<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>) 
+        loss <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>reduce_mean(tf<span style="color:#f92672">.</span>losses<span style="color:#f92672">.</span>categorical_crossentropy(y_onehot, out, from_logits<span style="color:#f92672">=</span>True))
+    grads <span style="color:#f92672">=</span> tape<span style="color:#f92672">.</span>gradient(loss, network<span style="color:#f92672">.</span>trainable_variables)
+    optimizer<span style="color:#f92672">.</span>apply_gradients(zip(grads, network<span style="color:#f92672">.</span>trainable_variables))
+
+    <span style="color:#75715e"># evaluate</span>
+    <span style="color:#66d9ef">if</span> step <span style="color:#f92672">%</span> <span style="color:#ae81ff">500</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        total, total_correct <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0</span>
+        acc_meter<span style="color:#f92672">.</span>reset_states()
+        <span style="color:#66d9ef">for</span> step, (x, y) <span style="color:#f92672">in</span> enumerate(ds_val): 
+            x <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>reshape(x, (<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">28</span><span style="color:#f92672">*</span><span style="color:#ae81ff">28</span>))
+            out <span style="color:#f92672">=</span> network(x) 
+            pred <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>argmax(out, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) 
+            pred <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>cast(pred, dtype<span style="color:#f92672">=</span>tf<span style="color:#f92672">.</span>int32)
+            correct <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>equal(pred, y)
+            total_correct <span style="color:#f92672">+=</span> tf<span style="color:#f92672">.</span>reduce_sum(tf<span style="color:#f92672">.</span>cast(correct, dtype<span style="color:#f92672">=</span>tf<span style="color:#f92672">.</span>int32))<span style="color:#f92672">.</span>numpy()
+            total <span style="color:#f92672">+=</span> x<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
+            acc_meter<span style="color:#f92672">.</span>update_state(y, pred)
+        <span style="color:#66d9ef">print</span>(step, <span style="color:#e6db74">&#39;Evaluate Acc:&#39;</span>, total_correct<span style="color:#f92672">/</span>total, acc_meter<span style="color:#f92672">.</span>result()<span style="color:#f92672">.</span>numpy())      
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">###使用compile、fit之后的模型装配、训练和测试，详细见ch08-Keras高层接口/nb.py</span>
+network <span style="color:#f92672">=</span> Sequential([layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">256</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+                     layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">128</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+                     layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+                     layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">32</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+                     layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">10</span>)])
+network<span style="color:#f92672">.</span>build(input_shape<span style="color:#f92672">=</span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">28</span><span style="color:#f92672">*</span><span style="color:#ae81ff">28</span>))
+<span style="color:#f92672">from</span> tensorflow.keras <span style="color:#f92672">import</span> optimizers,losses 
+<span style="color:#75715e"># 采用Adam优化器，学习率为0.01;采用交叉熵损失函数，包含Softmax</span>
+network<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span>optimizers<span style="color:#f92672">.</span>Adam(lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>),
+        loss<span style="color:#f92672">=</span>losses<span style="color:#f92672">.</span>CategoricalCrossentropy(from_logits<span style="color:#f92672">=</span>True),
+        metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>] <span style="color:#75715e"># 设置测量指标为准确率 </span>
+)
+
+<span style="color:#75715e"># 指定训练集为db，验证集为val_db,训练5个epochs，每2个epoch验证一次</span>
+history <span style="color:#f92672">=</span> network<span style="color:#f92672">.</span>fit(train_db, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, validation_data<span style="color:#f92672">=</span>val_db, validation_freq<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+network<span style="color:#f92672">.</span>evaluate(ds_val)
+history<span style="color:#f92672">.</span>history <span style="color:#75715e"># 打印训练记录</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h4 id="自定义网络和自定义网络层">自定义网络和自定义网络层</h4>
+<blockquote>
+<p>自定义网络需要继承自keras.Model基类，自定义网络层需要继承自keras.layers.Layer基类</p>
+</blockquote>
+<ul>
+<li>自定义网络层，重写<code>__init__</code>和<code>call</code></li>
+<li>自定义网络，重写cal，可以使用Model的compile、fit、evaluate</li>
+</ul>
+<h4 id="保存模型">保存模型</h4>
+<ul>
+<li>第一种方式，保存模型参数信息</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#保存模型参数</span>
+model<span style="color:#f92672">.</span>save_weights(<span style="color:#e6db74">&#39;./checkpoints/my_checkpoint&#39;</span>)
+<span style="color:#75715e">#重新建立模型</span>
+<span style="color:#75715e">#载入模型参数</span>
+network<span style="color:#f92672">.</span>load_weights(<span style="color:#e6db74">&#39;./checkpoints/my_checkpoint&#39;</span>)
+</code></pre></div><ul>
+<li>第二种方式，保存模型结构和模型参数</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">network<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#39;model.h5&#39;</span>)
+<span style="color:#66d9ef">del</span> network
+network <span style="color:#f92672">=</span> keras<span style="color:#f92672">.</span>models<span style="color:#f92672">.</span>load_model(<span style="color:#e6db74">&#39;model.h5&#39;</span>)
+</code></pre></div><ul>
+<li>第三种方式</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 具有平台无关性</span>
+tf<span style="color:#f92672">.</span>saved_model<span style="color:#f92672">.</span>save(network, <span style="color:#e6db74">&#39;model-savedmodel&#39;</span>)
+<span style="color:#66d9ef">del</span> network
+network <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>saved_model<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#39;model-savedmodel&#39;</span>)
+</code></pre></div><h3 id="卷积神经网络">卷积神经网络</h3>
+<ul>
+<li>通过滑动窗口和参数共享来减少神经网络的参数，从而加深网络深度</li>
+<li>卷积层还起到一个降为的功能，如果stride设的大的话</li>
+<li>金字塔的结构一层一层的堆叠的作用：获得低层特征到获得高层抽象特征</li>
+</ul>
 <h2 id="参考教程">参考教程</h2>
 <p><a href="https://www.bilibili.com/video/BV1HV411q7xD?p=3&amp;spm_id_from=pageDriver">龙良曲TensorFlow教程</a></p>
 

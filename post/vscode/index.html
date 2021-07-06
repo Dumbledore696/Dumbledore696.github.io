@@ -18,7 +18,15 @@
  首先下载vscode和编译器mingw64，然后将mingw64加入环境变量。 在vscode中下载拓展：  chinese C/C&#43;&#43; Code Runner（这个是中国人写的，公众号和知乎都挺活跃的，插件的具体作用以后再探索吧）   为了在vscode下的terminal中显示输出，文件&gt;首选项&gt;设置&gt;用户&gt;拓展&gt;Run Code Configuration，找到Run In Terminal并勾选上，不进行这一步操作，程序中scanf无法执行。 新建cpp文件，点击右上角三角形即可运行。  其他配置
  若要在外部中断显示输出或输入，看参考博文1 若要调试C&#43;&#43;，需要有launch.json和tasks.json，详细的看参考博文1  leetcode插件配置 今天试了一下用vscode刷题，确实沉浸感很强，更能专注的思考，还有什么好处，后面再写。配置见参考博客2
 我配置的过程中遇到了一个问题，在选择code now时，没有指定工作区，一直无法写代码。直接在setting中搜索leetcode:workspace即可修改
-参考 参考博客1
+调试配置 来填坑了，之前偷懒了🤣，没用vscode的调试功能，都是在vscode上写leetcode，如果要调试需要打开VS。
+这次有个项目需要写c&#43;&#43;代码，索性就把vscode的调试功能配置一下。
+  ctrl&#43;shift&#43;p在输入框中输入C\C&#43;&#43;:编辑配置(UI)查看vscode的编译器是否配置正确
+注意此处编译器为mingw64，关于mingw64和MSVC等编译器的区别，以后再说……
+  在文件夹中创建一个cpp文件，光标移到上端运行按钮，点击启动调试
+Windows那个是给MSVC编译器用的，MingGW需要使用GDB，点击C&#43;&#43;(GDB/LLDB)
+  选择g&#43;&#43;.exe（我看网上教程是选择gcc.exe，但是我试过报错了，所以这里都可以试一下，记得重新选择时，把之前生成的.vscode文件删掉），之后会产生.vscode文件夹。文件夹下有launch.json和tasks.json，这两个文件作为调试的配置文件，首次配置后不再需要配置。
+  给程序加断点，然后F5调试。
+  参考 参考博客1
 参考博客2"/>
 
     <meta property="og:title" content="vscode的C&#43;&#43;编译运行配置" />
@@ -27,7 +35,15 @@
  首先下载vscode和编译器mingw64，然后将mingw64加入环境变量。 在vscode中下载拓展：  chinese C/C&#43;&#43; Code Runner（这个是中国人写的，公众号和知乎都挺活跃的，插件的具体作用以后再探索吧）   为了在vscode下的terminal中显示输出，文件&gt;首选项&gt;设置&gt;用户&gt;拓展&gt;Run Code Configuration，找到Run In Terminal并勾选上，不进行这一步操作，程序中scanf无法执行。 新建cpp文件，点击右上角三角形即可运行。  其他配置
  若要在外部中断显示输出或输入，看参考博文1 若要调试C&#43;&#43;，需要有launch.json和tasks.json，详细的看参考博文1  leetcode插件配置 今天试了一下用vscode刷题，确实沉浸感很强，更能专注的思考，还有什么好处，后面再写。配置见参考博客2
 我配置的过程中遇到了一个问题，在选择code now时，没有指定工作区，一直无法写代码。直接在setting中搜索leetcode:workspace即可修改
-参考 参考博客1
+调试配置 来填坑了，之前偷懒了🤣，没用vscode的调试功能，都是在vscode上写leetcode，如果要调试需要打开VS。
+这次有个项目需要写c&#43;&#43;代码，索性就把vscode的调试功能配置一下。
+  ctrl&#43;shift&#43;p在输入框中输入C\C&#43;&#43;:编辑配置(UI)查看vscode的编译器是否配置正确
+注意此处编译器为mingw64，关于mingw64和MSVC等编译器的区别，以后再说……
+  在文件夹中创建一个cpp文件，光标移到上端运行按钮，点击启动调试
+Windows那个是给MSVC编译器用的，MingGW需要使用GDB，点击C&#43;&#43;(GDB/LLDB)
+  选择g&#43;&#43;.exe（我看网上教程是选择gcc.exe，但是我试过报错了，所以这里都可以试一下，记得重新选择时，把之前生成的.vscode文件删掉），之后会产生.vscode文件夹。文件夹下有launch.json和tasks.json，这两个文件作为调试的配置文件，首次配置后不再需要配置。
+  给程序加断点，然后F5调试。
+  参考 参考博客1
 参考博客2" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Dumbledore696.github.io/post/vscode/" /><meta property="article:section" content="post" />
@@ -115,6 +131,28 @@
 <h3 id="leetcode插件配置">leetcode插件配置</h3>
 <p>今天试了一下用vscode刷题，确实沉浸感很强，更能专注的思考，还有什么好处，后面再写。配置见参考博客2</p>
 <p>我配置的过程中遇到了一个问题，在选择code now时，没有指定工作区，一直无法写代码。直接在setting中搜索<code>leetcode:workspace</code>即可修改</p>
+<h3 id="调试配置">调试配置</h3>
+<p>来填坑了，之前偷懒了🤣，没用vscode的调试功能，都是在vscode上写leetcode，如果要调试需要打开VS。</p>
+<p>这次有个项目需要写c++代码，索性就把vscode的调试功能配置一下。</p>
+<ol>
+<li>
+<p><code>ctrl+shift+p</code>在输入框中输入<code>C\C++:编辑配置(UI)</code>查看vscode的编译器是否配置正确</p>
+<p><img src="/vscode_debug1.png" alt="image-20210629235751839"></p>
+<p>注意此处编译器为mingw64，关于mingw64和MSVC等编译器的区别，以后再说……</p>
+</li>
+<li>
+<p>在文件夹中创建一个cpp文件，光标移到上端<code>运行</code>按钮，点击启动调试</p>
+<p><img src="/vscode_debug2.png" alt="image-20210630000637329"></p>
+<p>Windows那个是给MSVC编译器用的，MingGW需要使用GDB，点击C++(GDB/LLDB)</p>
+</li>
+<li>
+<p>选择g++.exe（我看网上教程是选择gcc.exe，但是我试过报错了，所以这里都可以试一下，记得重新选择时，把之前生成的.vscode文件删掉），之后会产生.vscode文件夹。文件夹下有launch.json和tasks.json，这两个文件作为调试的配置文件，首次配置后不再需要配置。</p>
+<p><img src="/vscode_debug3.png" alt="image-20210630000825053"></p>
+</li>
+<li>
+<p>给程序加断点，然后F5调试。</p>
+</li>
+</ol>
 <h3 id="参考">参考</h3>
 <p><a href="https://zhuanlan.zhihu.com/p/77645306">参考博客1</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/108501945">参考博客2</a></p>

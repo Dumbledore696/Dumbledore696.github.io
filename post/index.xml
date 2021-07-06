@@ -21,9 +21,12 @@
 调用TensorFlow的api完成复杂神经网络的搭建
   安装  Anaconda CUDA Nvidia运算平台，实现并行计算 cuDNN 面向神经网络的加速库  应用 以手写数字识别为例，训练神经网络的步骤为
  准备数据集minist 前向传播计算h1、h2、out 由y和out计算loss 由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3 跳到第二步，用更新好的参数继续计算  以具体的例子可以对比使用tensorflow前后的不同
-note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了解决高维数据的吞吐和运算，list——&amp;gt;numpy.array
+note   要使用GPU加速，要将numpy转换为tensor
+  为了解决高维数据的吞吐和运算，list——&amp;gt;numpy.array
 为了支持GPU运算和自动求导， numpy.array——&amp;gt;tf.Tensor
-操作 参考教程 龙良曲TensorFlow教程</description>
+  tf.varible()是专门为神经网络的参数设置的属性，为了记录参数的梯度信息
+  tensorflow基础 基本数据类型和属性   为了解决高维数据的吞吐和运算，list——&amp;gt;numpy.array
+  为了支持GPU运算和自动求导， numpy.</description>
     </item>
     
     <item>
@@ -33,7 +36,7 @@ note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了
       
       <guid>https://Dumbledore696.github.io/post/vector/</guid>
       <description>声明和初始化 vector是一个可变大小数组
-vector&amp;lt;int&amp;gt; vec;	//声明一个int型向量 vector&amp;lt;int&amp;gt; vec(5);	//声明一个初始大小为5的int向量 vector&amp;lt;int&amp;gt; vec(10, 1);	//声明一个初始大小为10且值都是1的向量 vector&amp;lt;int&amp;gt; vec(tmp);	//声明并用tmp向量初始化vec向量 vector&amp;lt;int&amp;gt; tmp(vec.begin(), vec.begin() + 3);	//用向量vec的第0个到第2个值初始化tmp int arr[5] = {1, 2, 3, 4, 5};	vector&amp;lt;int&amp;gt; vec(arr, arr + 5);	//将arr数组的元素用于初始化vec向量 vector&amp;lt;int&amp;gt; vec(&amp;amp;arr[1], &amp;amp;arr[4]); //将arr[1]~arr[4]范围内的元素作为vec的初始值 vector&amp;lt;int&amp;gt; vec({1,2}); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; result.push_back({nums[i],nums[j],nums[k]}) 操作 vec.size();//容量 vec.empty();//判空  vec.push_back();//末尾添加元素 vec.pop_back();//末尾删除元素 vec.insert();//任意位置插入元素 vec.erase();//任意位置删除元素 vec.clear(); vec.begin(); vec.end(); vec[1];//访问元素 vec.at[1];//访问元素，at会检查是否越界，是则抛出out of range异常 vec.front();//访问第一个元素 vec.back();//访问最后一个元素  vector&amp;lt;int&amp;gt;::iterator it; for (it = vec.begin(); it != vec.</description>
+vector&amp;lt;int&amp;gt; vec;	//声明一个int型向量 vector&amp;lt;int&amp;gt; vec(5);	//声明一个初始大小为5的int向量 vector&amp;lt;int&amp;gt; vec(10, 1);	//声明一个初始大小为10且值都是1的向量 vector&amp;lt;int&amp;gt; vec(tmp);	//声明并用tmp向量初始化vec向量 vector&amp;lt;int&amp;gt; tmp(vec.begin(), vec.begin() + 3);	//用向量vec的第0个到第2个值初始化tmp int arr[5] = {1, 2, 3, 4, 5};	vector&amp;lt;int&amp;gt; vec(arr, arr + 5);	//将arr数组的元素用于初始化vec向量 vector&amp;lt;int&amp;gt; vec(&amp;amp;arr[1], &amp;amp;arr[4]); //将arr[1]~arr[4]范围内的元素作为vec的初始值 vector&amp;lt;int&amp;gt; vec({1,2}); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; result.push_back({nums[i],nums[j],nums[k]}) 操作 vec.size();//容量 vec.empty();//判空  vec.push_back();//末尾添加元素 vec.pop_back();//末尾删除元素 f vec.insert();//任意位置插入元素 vec.erase();//任意位置删除元素 vec.clear(); vec.begin(); vec.end(); vec[1];//访问元素 vec.at[1];//访问元素，at会检查是否越界，是则抛出out of range异常 vec.front();//访问第一个元素 vec.back();//访问最后一个元素  vector&amp;lt;int&amp;gt;::iterator it; for (it = vec.begin(); it !</description>
     </item>
     
     <item>
@@ -47,7 +50,15 @@ vector&amp;lt;int&amp;gt; vec;	//声明一个int型向量 vector&amp;lt;int&amp;
  首先下载vscode和编译器mingw64，然后将mingw64加入环境变量。 在vscode中下载拓展：  chinese C/C++ Code Runner（这个是中国人写的，公众号和知乎都挺活跃的，插件的具体作用以后再探索吧）   为了在vscode下的terminal中显示输出，文件&amp;gt;首选项&amp;gt;设置&amp;gt;用户&amp;gt;拓展&amp;gt;Run Code Configuration，找到Run In Terminal并勾选上，不进行这一步操作，程序中scanf无法执行。 新建cpp文件，点击右上角三角形即可运行。  其他配置
  若要在外部中断显示输出或输入，看参考博文1 若要调试C++，需要有launch.json和tasks.json，详细的看参考博文1  leetcode插件配置 今天试了一下用vscode刷题，确实沉浸感很强，更能专注的思考，还有什么好处，后面再写。配置见参考博客2
 我配置的过程中遇到了一个问题，在选择code now时，没有指定工作区，一直无法写代码。直接在setting中搜索leetcode:workspace即可修改
-参考 参考博客1
+调试配置 来填坑了，之前偷懒了🤣，没用vscode的调试功能，都是在vscode上写leetcode，如果要调试需要打开VS。
+这次有个项目需要写c++代码，索性就把vscode的调试功能配置一下。
+  ctrl+shift+p在输入框中输入C\C++:编辑配置(UI)查看vscode的编译器是否配置正确
+注意此处编译器为mingw64，关于mingw64和MSVC等编译器的区别，以后再说……
+  在文件夹中创建一个cpp文件，光标移到上端运行按钮，点击启动调试
+Windows那个是给MSVC编译器用的，MingGW需要使用GDB，点击C++(GDB/LLDB)
+  选择g++.exe（我看网上教程是选择gcc.exe，但是我试过报错了，所以这里都可以试一下，记得重新选择时，把之前生成的.vscode文件删掉），之后会产生.vscode文件夹。文件夹下有launch.json和tasks.json，这两个文件作为调试的配置文件，首次配置后不再需要配置。
+  给程序加断点，然后F5调试。
+  参考 参考博客1
 参考博客2</description>
     </item>
     

@@ -21,9 +21,12 @@
 调用TensorFlow的api完成复杂神经网络的搭建
   安装  Anaconda CUDA Nvidia运算平台，实现并行计算 cuDNN 面向神经网络的加速库  应用 以手写数字识别为例，训练神经网络的步骤为
  准备数据集minist 前向传播计算h1、h2、out 由y和out计算loss 由loss计算梯度，更新参数w1、b1、w2、b2、w3、b3 跳到第二步，用更新好的参数继续计算  以具体的例子可以对比使用tensorflow前后的不同
-note  要使用GPU加速，要将numpy转换为tensor  基本数据类型 为了解决高维数据的吞吐和运算，list——&amp;gt;numpy.array
+note   要使用GPU加速，要将numpy转换为tensor
+  为了解决高维数据的吞吐和运算，list——&amp;gt;numpy.array
 为了支持GPU运算和自动求导， numpy.array——&amp;gt;tf.Tensor
-操作 参考教程 龙良曲TensorFlow教程</description>
+  tf.varible()是专门为神经网络的参数设置的属性，为了记录参数的梯度信息
+  tensorflow基础 基本数据类型和属性   为了解决高维数据的吞吐和运算，list——&amp;gt;numpy.array
+  为了支持GPU运算和自动求导， numpy.</description>
     </item>
     
   </channel>
