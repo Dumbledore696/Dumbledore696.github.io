@@ -6,7 +6,27 @@
     <description>Recent content in Posts on DW的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Jun 2021 14:45:15 +0800</lastBuildDate><atom:link href="https://Dumbledore696.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jul 2021 17:16:19 +0800</lastBuildDate><atom:link href="https://Dumbledore696.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DRL书学习笔记</title>
+      <link>https://Dumbledore696.github.io/post/drl%E4%B9%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 13 Jul 2021 17:16:19 +0800</pubDate>
+      
+      <guid>https://Dumbledore696.github.io/post/drl%E4%B9%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>笔记 王树森DRL
+  蒙特卡洛是一大类随机算法的总称，通过随机样本来估计真实值
+  状态是对当前环境的一个概括，是做决策的唯一依据
+  环境用于生成新状态
+  动作价值函数是回报的条件期望，而求期望是为了消除回报的随机性
+  策略评估是求某一个状态和动作的价值函数，动作控制是利用最佳价值函数选择某一状态下的动作
+  在value-based中，求最佳策略的前提是求最优价值函数，而最优价值函数是用表格法或者网络近似的。
+  时序差分中，用目标Q值或者称为TD目标代替Gt进行loss的计算，目标是缩小TD误差。比如Q-learning中的TD目标为 $$ \underbrace{Q\left(s_{t}, a_{t} ; \boldsymbol{w}\right)}_{\text {预测 } \hat{q}_{t}} \approx \underbrace{r_{t}+\gamma \cdot \max _{a \in \mathcal{A}} Q\left(s_{t+1}, a ; \boldsymbol{w}\right)}_{\mathrm{TD} \text { 目标 } \hat{y}_{t}} . $$
+  RL中困难的数学推导主要是随机变量、马尔可夫决策过程、贝尔曼方程（概率计算，期望）
+  off-policy和on-policy
+ 策略分为行为策略和目标策略，行为策略是和环境交互的策略 off-policy即行为策略和目标策略不同，因此可以使用行为策略产生的经验用于训练目标策略 经验回访只适用于off-policy，因此可得到DDPG中的DPG也是off-policy 可以看算法中A‘的生成，若A’是由行为策略生成的（即产生A的策略），则该算法为on-policy，反之为off-policy    Q-learning与SARSA的区别
+   Q-learning 近似$Q_*$（与$\pi$无关） off-policy 可以使用经验回放     SARSA 近似$Q_\pi$ on-policy 不可以使用经验回放      MC和TD</description>
+    </item>
+    
     <item>
       <title>TensorFlow学习</title>
       <link>https://Dumbledore696.github.io/post/tensorflow/</link>
@@ -36,7 +56,7 @@ note   要使用GPU加速，要将numpy转换为tensor
       
       <guid>https://Dumbledore696.github.io/post/vector/</guid>
       <description>声明和初始化 vector是一个可变大小数组
-vector&amp;lt;int&amp;gt; vec;	//声明一个int型向量 vector&amp;lt;int&amp;gt; vec(5);	//声明一个初始大小为5的int向量 vector&amp;lt;int&amp;gt; vec(10, 1);	//声明一个初始大小为10且值都是1的向量 vector&amp;lt;int&amp;gt; vec(tmp);	//声明并用tmp向量初始化vec向量 vector&amp;lt;int&amp;gt; tmp(vec.begin(), vec.begin() + 3);	//用向量vec的第0个到第2个值初始化tmp int arr[5] = {1, 2, 3, 4, 5};	vector&amp;lt;int&amp;gt; vec(arr, arr + 5);	//将arr数组的元素用于初始化vec向量 vector&amp;lt;int&amp;gt; vec(&amp;amp;arr[1], &amp;amp;arr[4]); //将arr[1]~arr[4]范围内的元素作为vec的初始值 vector&amp;lt;int&amp;gt; vec({1,2}); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; result.push_back({nums[i],nums[j],nums[k]}) 操作 vec.size();//容量 vec.empty();//判空  vec.push_back();//末尾添加元素 vec.pop_back();//末尾删除元素 f vec.insert();//任意位置插入元素 vec.erase();//任意位置删除元素 vec.clear(); vec.begin(); vec.end(); vec[1];//访问元素 vec.at[1];//访问元素，at会检查是否越界，是则抛出out of range异常 vec.front();//访问第一个元素 vec.back();//访问最后一个元素  vector&amp;lt;int&amp;gt;::iterator it; for (it = vec.begin(); it !</description>
+vector&amp;lt;int&amp;gt; vec;	//声明一个int型向量 vector&amp;lt;int&amp;gt; vec(5);	//声明一个初始大小为5的int向量 vector&amp;lt;int&amp;gt; vec(10, 1);	//声明一个初始大小为10且值都是1的向量 vector&amp;lt;int&amp;gt; vec(tmp);	//声明并用tmp向量初始化vec向量 vector&amp;lt;int&amp;gt; tmp(vec.begin(), vec.begin() + 3);	//用向量vec的第0个到第2个值初始化tmp int arr[5] = {1, 2, 3, 4, 5};	vector&amp;lt;int&amp;gt; vec(arr, arr + 5);	//将arr数组的元素用于初始化vec向量 vector&amp;lt;int&amp;gt; vec(&amp;amp;arr[1], &amp;amp;arr[4]); //将arr[1]~arr[4]范围内的元素作为vec的初始值 vector&amp;lt;int&amp;gt; vec({1,2}); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; result.push_back({nums[i],nums[j],nums[k]}); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; vec(a,vector&amp;lt;int&amp;gt;(b));//初始化一个a行b列的二维vector，全部元素为0  操作 vec.size();//容量 vec.empty();//判空  vec.push_back();//末尾添加元素 vec.pop_back();//末尾删除元素 f vec.insert();//任意位置插入元素 vec.erase();//任意位置删除元素 vec.clear(); vec.begin(); vec.end(); vec[1];//访问元素 vec.at[1];//访问元素，at会检查是否越界，是则抛出out of range异常 vec.front();//访问第一个元素 vec.back();//访问最后一个元素  vector&amp;lt;int&amp;gt;::iterator it; for (it = vec.</description>
     </item>
     
     <item>
